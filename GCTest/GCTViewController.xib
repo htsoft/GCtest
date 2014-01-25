@@ -10,12 +10,17 @@
                 <outlet property="B" destination="KZo-mq-lA5" id="2FH-ct-laT"/>
                 <outlet property="LS" destination="uNS-6g-ugV" id="Uj0-uG-iJ9"/>
                 <outlet property="LT" destination="KhU-He-CJa" id="dSU-hJ-EXU"/>
+                <outlet property="LTA" destination="ZIh-aZ-pAo" id="Fr1-01-frJ"/>
+                <outlet property="LTM" destination="uwD-9X-xTe" id="Uoz-nl-59T"/>
                 <outlet property="RS" destination="Y1f-zG-s1g" id="gs2-KQ-Fh1"/>
                 <outlet property="RT" destination="Xrl-Hl-H7Y" id="tNj-c8-SOq"/>
+                <outlet property="RTA" destination="ktA-nh-XoB" id="BUU-Wg-aki"/>
+                <outlet property="RTM" destination="C3v-2w-EbE" id="rah-nx-EdY"/>
                 <outlet property="X" destination="uZL-d6-Ng4" id="wnH-Pw-Kha"/>
                 <outlet property="Y" destination="BFb-vD-qWr" id="yoK-xb-BL6"/>
                 <outlet property="down" destination="Xhy-72-QKD" id="3tc-Dd-FZs"/>
                 <outlet property="left" destination="ovd-Xa-tmd" id="l4M-dD-3CL"/>
+                <outlet property="pauseButton" destination="n7Q-qw-yGJ" id="mgl-cO-f1W"/>
                 <outlet property="right" destination="ptS-mg-kdi" id="5kW-3l-EX2"/>
                 <outlet property="status" destination="R9j-WC-k7O" id="haP-Vf-o0I"/>
                 <outlet property="up" destination="ed6-i7-BU2" id="Gay-vs-dKc"/>
@@ -110,6 +115,26 @@
                     <rect key="frame" x="87" y="93" width="24" height="24"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="stickArea.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZIh-aZ-pAo">
+                    <rect key="frame" x="133" y="171" width="100" height="100"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="stickArea.png" translatesAutoresizingMaskIntoConstraints="NO" id="ktA-nh-XoB">
+                    <rect key="frame" x="331" y="171" width="100" height="100"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="marker.png" translatesAutoresizingMaskIntoConstraints="NO" id="uwD-9X-xTe">
+                    <rect key="frame" x="175" y="213" width="16" height="16"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="marker.png" translatesAutoresizingMaskIntoConstraints="NO" id="C3v-2w-EbE">
+                    <rect key="frame" x="373" y="213" width="16" height="16"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pause.png" translatesAutoresizingMaskIntoConstraints="NO" id="n7Q-qw-yGJ">
+                    <rect key="frame" x="269" y="102" width="31" height="31"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -119,7 +144,10 @@
     <resources>
         <image name="down.png" width="32" height="32"/>
         <image name="left.png" width="32" height="32"/>
+        <image name="marker.png" width="16" height="16"/>
+        <image name="pause.png" width="62" height="62"/>
         <image name="right.png" width="32" height="32"/>
+        <image name="stickArea.png" width="200" height="200"/>
         <image name="up.png" width="32" height="32"/>
     </resources>
 </document>

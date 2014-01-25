@@ -12,6 +12,7 @@
 @interface GCTViewController : UIViewController
 
 @property (nonatomic, assign) BOOL controllerConnected;
+@property (nonatomic, assign) BOOL pause;
 @property (nonatomic, strong) GCController *gameController;
 
 @property (nonatomic, strong) IBOutlet UILabel *status;
@@ -28,5 +29,10 @@
 @property (nonatomic, strong) IBOutlet UIImageView *left;
 @property (nonatomic, strong) IBOutlet UIImageView *right;
 @property (nonatomic, strong) IBOutlet UIImageView *down;
+@property (nonatomic, strong) IBOutlet UIImageView *LTA;
+@property (nonatomic, strong) IBOutlet UIImageView *RTA;
+@property (nonatomic, strong) IBOutlet UIImageView *LTM;
+@property (nonatomic, strong) IBOutlet UIImageView *RTM;
+@property (nonatomic, strong) IBOutlet UIImageView *pauseButton;
 
 @end

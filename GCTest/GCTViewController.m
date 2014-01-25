@@ -10,12 +10,19 @@
 
 @interface GCTViewController ()
 
+@property (nonatomic, assign) CGPoint originalLTMCenter;
+@property (nonatomic, assign) CGPoint originalRTMCenter;
+
 @end
 
 @implementation GCTViewController
 
 @synthesize controllerConnected = _controllerConnected;
 @synthesize gameController = _gameController;
+@synthesize pause = _pause;
+
+@synthesize originalLTMCenter = _originalLTMCenter;
+@synthesize originalRTMCenter = _originalRTMCenter;
 
 @synthesize status = _status;
 @synthesize vendor = _vendor;
@@ -31,6 +38,11 @@
 @synthesize left = _left;
 @synthesize right = _right;
 @synthesize down = _down;
+@synthesize LTA = _LTA;
+@synthesize RTA = _RTA;
+@synthesize LTM = _LTM;
+@synthesize RTM = _RTM;
+@synthesize pauseButton = _pauseButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -53,6 +65,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    _originalRTMCenter = _RTM.center;
+    _originalLTMCenter = _LTM.center;
 }
 
 - (void)didReceiveMemoryWarning
@@ -90,203 +104,284 @@
 
 - (void)controllerConnectionStateChanged {
     NSString *infoString = @"";
+    GCTViewController * __weak weakSelf = self;  // avoid capturing self in the block
     // La classe GCController mette a disposizione un metodo di classe, denominato controllers, che restituisce l'elenco di controllers collegati al dispositivo
     // Per questo esempio si suppone che vi sia collegato un solo controller per volta
     if([[GCController controllers] count]>0) {
         infoString = @"Controller connected!";
         _gameController = [GCController controllers][0];
-        _controllerConnected = YES;
+        _gameController.controllerPausedHandler = ^(GCController *controller)
+                                                    {
+                                                        weakSelf.pause = !weakSelf.pause;
+                                                        if(weakSelf.pause)
+                                                            weakSelf.pauseButton.image = [UIImage imageNamed:@"pausesel"];
+                                                        else
+                                                            weakSelf.pauseButton.image = [UIImage imageNamed:@"pause"];
+                                                    };
         if(_gameController.extendedGamepad) {
             // Registro gli handler per un controller esteso
             GCExtendedGamepad *profile = _gameController.extendedGamepad;
             
+            // Mostra tutti i pulsanti dell'extended controller
+            [_LT setHidden:NO];
+            [_RT setHidden:NO];
+            [_RTA setHidden:NO];
+            [_LTA setHidden:NO];
+            [_RTM setHidden:NO];
+            [_LTM setHidden:NO];
+            
             // Shoulders buttons
             profile.leftShoulder.valueChangedHandler = ^(GCControllerButtonInput *button, float value, BOOL pressed)
             {
-                if (pressed)
-                    _LS.backgroundColor = [UIColor darkGrayColor];
-                else
-                    _LS.backgroundColor = [UIColor lightGrayColor];
+                if(!self.pause) {
+                    if (pressed)
+                        _LS.backgroundColor = [UIColor darkGrayColor];
+                    else
+                        _LS.backgroundColor = [UIColor lightGrayColor];
+                }
             };
             profile.rightShoulder.valueChangedHandler = ^(GCControllerButtonInput *button, float value, BOOL pressed)
             {
-                if (pressed)
-                    _RS.backgroundColor = [UIColor darkGrayColor];
-                else
-                    _RS.backgroundColor = [UIColor lightGrayColor];
+                if(!self.pause) {
+                    if (pressed)
+                        _RS.backgroundColor = [UIColor darkGrayColor];
+                    else
+                        _RS.backgroundColor = [UIColor lightGrayColor];
+                }
             };
             
             // Triggers buttons
             profile.leftTrigger.valueChangedHandler = ^(GCControllerButtonInput *button, float value, BOOL pressed)
             {
-                if (pressed)
-                    _LT.backgroundColor = [UIColor darkGrayColor];
-                else
-                    _LT.backgroundColor = [UIColor lightGrayColor];
+                if(!self.pause) {
+                    if (pressed)
+                        _LT.backgroundColor = [UIColor darkGrayColor];
+                    else
+                        _LT.backgroundColor = [UIColor lightGrayColor];
+                }
             };
             profile.rightTrigger.valueChangedHandler = ^(GCControllerButtonInput *button, float value, BOOL pressed)
             {
-                if (pressed)
-                    _RT.backgroundColor = [UIColor darkGrayColor];
-                else
-                    _RT.backgroundColor = [UIColor lightGrayColor];
+                if(!self.pause) {
+                    if (pressed)
+                        _RT.backgroundColor = [UIColor darkGrayColor];
+                    else
+                        _RT.backgroundColor = [UIColor lightGrayColor];
+                }
             };
             
             // Buttons
             profile.buttonA.valueChangedHandler = ^(GCControllerButtonInput *button, float value, BOOL pressed)
             {
-                if (pressed)
-                    _A.textColor = [UIColor redColor];
-                else
-                    _A.textColor = [UIColor blackColor];
+                if(!self.pause) {
+                    if (pressed)
+                        _A.textColor = [UIColor redColor];
+                    else
+                        _A.textColor = [UIColor blackColor];
+                }
             };
             profile.buttonB.valueChangedHandler = ^(GCControllerButtonInput *button, float value, BOOL pressed)
             {
-                if (pressed)
-                    _B.textColor = [UIColor greenColor];
-                else
-                    _B.textColor = [UIColor blackColor];
+                if(!self.pause) {
+                    if (pressed)
+                        _B.textColor = [UIColor greenColor];
+                    else
+                        _B.textColor = [UIColor blackColor];
+                }
             };
             profile.buttonX.valueChangedHandler = ^(GCControllerButtonInput *button, float value, BOOL pressed)
             {
-                if (pressed)
-                    _X.textColor = [UIColor yellowColor];
-                else
-                    _X.textColor = [UIColor blackColor];
+                if(!self.pause) {
+                    if (pressed)
+                        _X.textColor = [UIColor yellowColor];
+                    else
+                        _X.textColor = [UIColor blackColor];
+                }
             };
             profile.buttonY.valueChangedHandler = ^(GCControllerButtonInput *button, float value, BOOL pressed)
             {
-                if (pressed)
-                    _Y.textColor = [UIColor blueColor];
-                else
-                    _Y.textColor = [UIColor blackColor];
+                if(!self.pause) {
+                    if (pressed)
+                        _Y.textColor = [UIColor blueColor];
+                    else
+                        _Y.textColor = [UIColor blackColor];
+                }
             };
             profile.buttonA.valueChangedHandler = ^(GCControllerButtonInput *button, float value, BOOL pressed)
             {
-                if (pressed)
-                    _A.backgroundColor = [UIColor redColor];
-                else
-                    _A.backgroundColor = [UIColor clearColor];
+                if(!self.pause) {
+                    if (pressed)
+                        _A.backgroundColor = [UIColor redColor];
+                    else
+                        _A.backgroundColor = [UIColor clearColor];
+                }
             };
             profile.buttonB.valueChangedHandler = ^(GCControllerButtonInput *button, float value, BOOL pressed)
             {
-                if (pressed)
-                    _B.backgroundColor = [UIColor greenColor];
-                else
-                    _B.backgroundColor = [UIColor clearColor];
+                if(!self.pause) {
+                    if (pressed)
+                        _B.backgroundColor = [UIColor greenColor];
+                    else
+                        _B.backgroundColor = [UIColor clearColor];
+                }
             };
             profile.buttonX.valueChangedHandler = ^(GCControllerButtonInput *button, float value, BOOL pressed)
             {
-                if (pressed)
-                    _X.backgroundColor = [UIColor yellowColor];
-                else
-                    _X.backgroundColor = [UIColor clearColor];
+                if(!self.pause) {
+                    if (pressed)
+                        _X.backgroundColor = [UIColor yellowColor];
+                    else
+                        _X.backgroundColor = [UIColor clearColor];
+                }
             };
             profile.buttonY.valueChangedHandler = ^(GCControllerButtonInput *button, float value, BOOL pressed)
             {
-                if (pressed)
-                    _Y.backgroundColor = [UIColor blueColor];
-                else
-                    _Y.backgroundColor = [UIColor clearColor];
+                if(!self.pause) {
+                    if (pressed)
+                        _Y.backgroundColor = [UIColor blueColor];
+                    else
+                        _Y.backgroundColor = [UIColor clearColor];
+                }
             };
 
             // D-Pad
             profile.dpad.valueChangedHandler = ^(GCControllerDirectionPad *dpad, float xValue, float yValue)
             {
-                if(dpad.up.pressed)
-                    _up.image = [UIImage imageNamed:@"upsel"];
-                else
-                    _up.image = [UIImage imageNamed:@"up"];
-                if(dpad.down.pressed)
-                    _down.image = [UIImage imageNamed:@"downsel"];
-                else
-                    _down.image = [UIImage imageNamed:@"down"];
-                if(dpad.left.pressed)
-                    _left.image = [UIImage imageNamed:@"leftsel"];
-                else
-                    _left.image = [UIImage imageNamed:@"left"];
-                if(dpad.right.pressed)
-                    _right.image = [UIImage imageNamed:@"rightsel"];
-                else
-                    _right.image = [UIImage imageNamed:@"right"];
+                if(!self.pause) {
+                    if(dpad.up.pressed)
+                        _up.image = [UIImage imageNamed:@"upsel"];
+                    else
+                        _up.image = [UIImage imageNamed:@"up"];
+                    if(dpad.down.pressed)
+                        _down.image = [UIImage imageNamed:@"downsel"];
+                    else
+                        _down.image = [UIImage imageNamed:@"down"];
+                    if(dpad.left.pressed)
+                        _left.image = [UIImage imageNamed:@"leftsel"];
+                    else
+                        _left.image = [UIImage imageNamed:@"left"];
+                    if(dpad.right.pressed)
+                        _right.image = [UIImage imageNamed:@"rightsel"];
+                    else
+                        _right.image = [UIImage imageNamed:@"right"];
+                }
+            };
+            
+            // Left stick
+            profile.leftThumbstick.valueChangedHandler = ^(GCControllerDirectionPad *dpad, float xValue, float yValue)
+            {
+                if(!self.pause) {
+                    CGPoint newCenterLTM = CGPointMake(_originalLTMCenter.x + 50 * xValue, _originalLTMCenter.y - 50 * yValue);
+                    [_LTM setCenter:newCenterLTM];
+                }
+            };
+            
+            // Right stick
+            profile.rightThumbstick.valueChangedHandler = ^(GCControllerDirectionPad *dpad, float xValue, float yValue)
+            {
+                if(!self.pause) {
+                    CGPoint newCenterRTM = CGPointMake(_originalRTMCenter.x + 50 * xValue, _originalRTMCenter.y - 50 * yValue);
+                    [_RTM setCenter:newCenterRTM];
+                }
             };
         } else {
             // Registro gli handler per un controller standard
             GCGamepad *profile = _gameController.gamepad;
             
+            // Nasconde tutti i pulsanti dell'extended controller
+            [_LT setHidden:YES];
+            [_RT setHidden:YES];
+            [_RTA setHidden:YES];
+            [_LTA setHidden:YES];
+            [_RTM setHidden:YES];
+            [_LTM setHidden:YES];
+            
             // Shoulders buttons
             profile.leftShoulder.valueChangedHandler = ^(GCControllerButtonInput *button, float value, BOOL pressed)
             {
-                if (pressed)
-                    _LS.backgroundColor = [UIColor darkGrayColor];
-                else
-                    _LS.backgroundColor = [UIColor lightGrayColor];
+                if(!self.pause) {
+                    if (pressed)
+                        _LS.backgroundColor = [UIColor darkGrayColor];
+                    else
+                        _LS.backgroundColor = [UIColor lightGrayColor];
+                }
             };
             profile.rightShoulder.valueChangedHandler = ^(GCControllerButtonInput *button, float value, BOOL pressed)
             {
-                if (pressed)
-                    _RS.backgroundColor = [UIColor darkGrayColor];
-                else
-                    _RS.backgroundColor = [UIColor lightGrayColor];
+                if(!self.pause) {
+                    if (pressed)
+                        _RS.backgroundColor = [UIColor darkGrayColor];
+                    else
+                        _RS.backgroundColor = [UIColor lightGrayColor];
+                }
             };
             
             // Buttons
             profile.buttonA.valueChangedHandler = ^(GCControllerButtonInput *button, float value, BOOL pressed)
             {
-                if (pressed)
-                    _A.backgroundColor = [UIColor redColor];
-                else
-                    _A.backgroundColor = [UIColor clearColor];
+                if(!self.pause) {
+                    if (pressed)
+                        _A.backgroundColor = [UIColor redColor];
+                    else
+                        _A.backgroundColor = [UIColor clearColor];
+                }
             };
             profile.buttonB.valueChangedHandler = ^(GCControllerButtonInput *button, float value, BOOL pressed)
             {
-                if (pressed)
-                    _B.backgroundColor = [UIColor greenColor];
-                else
-                    _B.backgroundColor = [UIColor clearColor];
+                if(!self.pause) {
+                    if (pressed)
+                        _B.backgroundColor = [UIColor greenColor];
+                    else
+                        _B.backgroundColor = [UIColor clearColor];
+                }
             };
             profile.buttonX.valueChangedHandler = ^(GCControllerButtonInput *button, float value, BOOL pressed)
             {
-                if (pressed)
-                    _X.backgroundColor = [UIColor yellowColor];
-                else
-                    _X.backgroundColor = [UIColor clearColor];
+                if(!self.pause) {
+                    if (pressed)
+                        _X.backgroundColor = [UIColor yellowColor];
+                    else
+                        _X.backgroundColor = [UIColor clearColor];
+                }
             };
             profile.buttonY.valueChangedHandler = ^(GCControllerButtonInput *button, float value, BOOL pressed)
             {
-                if (pressed)
-                    _Y.backgroundColor = [UIColor blueColor];
-                else
-                    _Y.backgroundColor = [UIColor clearColor];
+                if(!self.pause) {
+                    if (pressed)
+                        _Y.backgroundColor = [UIColor blueColor];
+                    else
+                        _Y.backgroundColor = [UIColor clearColor];
+                }
             };
             
             // D-Pad
             profile.dpad.valueChangedHandler = ^(GCControllerDirectionPad *dpad, float xValue, float yValue)
             {
-                if(dpad.up.pressed)
-                    _up.image = [UIImage imageNamed:@"upsel"];
-                else
-                    _up.image = [UIImage imageNamed:@"up"];
-                if(dpad.down.pressed)
-                    _down.image = [UIImage imageNamed:@"downsel"];
-                else
-                    _down.image = [UIImage imageNamed:@"down"];
-                if(dpad.left.pressed)
-                    _left.image = [UIImage imageNamed:@"leftsel"];
-                else
-                    _left.image = [UIImage imageNamed:@"left"];
-                if(dpad.right.pressed)
-                    _right.image = [UIImage imageNamed:@"rightsel"];
-                else
-                    _right.image = [UIImage imageNamed:@"right"];
+                if(!self.pause) {
+                    if(dpad.up.pressed)
+                        _up.image = [UIImage imageNamed:@"upsel"];
+                    else
+                        _up.image = [UIImage imageNamed:@"up"];
+                    if(dpad.down.pressed)
+                        _down.image = [UIImage imageNamed:@"downsel"];
+                    else
+                        _down.image = [UIImage imageNamed:@"down"];
+                    if(dpad.left.pressed)
+                        _left.image = [UIImage imageNamed:@"leftsel"];
+                    else
+                        _left.image = [UIImage imageNamed:@"left"];
+                    if(dpad.right.pressed)
+                        _right.image = [UIImage imageNamed:@"rightsel"];
+                    else
+                        _right.image = [UIImage imageNamed:@"right"];
+                }
             };
         }
     } else {
         // Il numero di controllers è pari a 0, sono stati tutti disconnessi
-        if(_controllerConnected)
-            infoString = @"Controller disconnected!";
+        infoString = @"Controller disconnected!";
         _gameController = nil;
-        _controllerConnected = NO;
+        _pause = NO;
     }
     _status.text = infoString;
     _vendor.text = _gameController.vendorName;
