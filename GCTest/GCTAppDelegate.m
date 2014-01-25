@@ -7,6 +7,7 @@
 //
 
 #import "GCTAppDelegate.h"
+#import "GCTViewController.h"
 
 @implementation GCTAppDelegate
 
@@ -14,6 +15,8 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    GCTViewController *controller = [[GCTViewController alloc] initWithNibName:@"GCTViewController" bundle:nil];
+    [self.window setRootViewController:controller];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

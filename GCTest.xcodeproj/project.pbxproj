@@ -19,6 +19,25 @@
 		A90A85CA1892036D00C9E44D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A90A85B21892036D00C9E44D /* UIKit.framework */; };
 		A90A85D21892036D00C9E44D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A90A85D01892036D00C9E44D /* InfoPlist.strings */; };
 		A90A85D41892036D00C9E44D /* GCTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A90A85D31892036D00C9E44D /* GCTestTests.m */; };
+		A90A85DE1892038000C9E44D /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A90A85DD1892038000C9E44D /* GameController.framework */; };
+		A90A85E21893244A00C9E44D /* GCTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A90A85E01893244A00C9E44D /* GCTViewController.m */; };
+		A90A85E31893244A00C9E44D /* GCTViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A90A85E11893244A00C9E44D /* GCTViewController.xib */; };
+		A90A85F5189389E900C9E44D /* down.png in Resources */ = {isa = PBXBuildFile; fileRef = A90A85E5189389E900C9E44D /* down.png */; };
+		A90A85F6189389E900C9E44D /* down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A90A85E6189389E900C9E44D /* down@2x.png */; };
+		A90A85F7189389E900C9E44D /* downsel.png in Resources */ = {isa = PBXBuildFile; fileRef = A90A85E7189389E900C9E44D /* downsel.png */; };
+		A90A85F8189389E900C9E44D /* downsel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A90A85E8189389E900C9E44D /* downsel@2x.png */; };
+		A90A85F9189389E900C9E44D /* left.png in Resources */ = {isa = PBXBuildFile; fileRef = A90A85E9189389E900C9E44D /* left.png */; };
+		A90A85FA189389E900C9E44D /* left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A90A85EA189389E900C9E44D /* left@2x.png */; };
+		A90A85FB189389E900C9E44D /* leftsel.png in Resources */ = {isa = PBXBuildFile; fileRef = A90A85EB189389E900C9E44D /* leftsel.png */; };
+		A90A85FC189389E900C9E44D /* leftsel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A90A85EC189389E900C9E44D /* leftsel@2x.png */; };
+		A90A85FD189389E900C9E44D /* right.png in Resources */ = {isa = PBXBuildFile; fileRef = A90A85ED189389E900C9E44D /* right.png */; };
+		A90A85FE189389E900C9E44D /* right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A90A85EE189389E900C9E44D /* right@2x.png */; };
+		A90A85FF189389E900C9E44D /* rightsel.png in Resources */ = {isa = PBXBuildFile; fileRef = A90A85EF189389E900C9E44D /* rightsel.png */; };
+		A90A8600189389E900C9E44D /* rightsel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A90A85F0189389E900C9E44D /* rightsel@2x.png */; };
+		A90A8601189389E900C9E44D /* up.png in Resources */ = {isa = PBXBuildFile; fileRef = A90A85F1189389E900C9E44D /* up.png */; };
+		A90A8602189389E900C9E44D /* up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A90A85F2189389E900C9E44D /* up@2x.png */; };
+		A90A8603189389E900C9E44D /* upsel.png in Resources */ = {isa = PBXBuildFile; fileRef = A90A85F3189389E900C9E44D /* upsel.png */; };
+		A90A8604189389E900C9E44D /* upsel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A90A85F4189389E900C9E44D /* upsel@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +67,26 @@
 		A90A85CF1892036D00C9E44D /* GCTestTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GCTestTests-Info.plist"; sourceTree = "<group>"; };
 		A90A85D11892036D00C9E44D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A90A85D31892036D00C9E44D /* GCTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GCTestTests.m; sourceTree = "<group>"; };
+		A90A85DD1892038000C9E44D /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = System/Library/Frameworks/GameController.framework; sourceTree = SDKROOT; };
+		A90A85DF1893244A00C9E44D /* GCTViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCTViewController.h; sourceTree = "<group>"; };
+		A90A85E01893244A00C9E44D /* GCTViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCTViewController.m; sourceTree = "<group>"; };
+		A90A85E11893244A00C9E44D /* GCTViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GCTViewController.xib; sourceTree = "<group>"; };
+		A90A85E5189389E900C9E44D /* down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = down.png; sourceTree = "<group>"; };
+		A90A85E6189389E900C9E44D /* down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "down@2x.png"; sourceTree = "<group>"; };
+		A90A85E7189389E900C9E44D /* downsel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downsel.png; sourceTree = "<group>"; };
+		A90A85E8189389E900C9E44D /* downsel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "downsel@2x.png"; sourceTree = "<group>"; };
+		A90A85E9189389E900C9E44D /* left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left.png; sourceTree = "<group>"; };
+		A90A85EA189389E900C9E44D /* left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left@2x.png"; sourceTree = "<group>"; };
+		A90A85EB189389E900C9E44D /* leftsel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leftsel.png; sourceTree = "<group>"; };
+		A90A85EC189389E900C9E44D /* leftsel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "leftsel@2x.png"; sourceTree = "<group>"; };
+		A90A85ED189389E900C9E44D /* right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right.png; sourceTree = "<group>"; };
+		A90A85EE189389E900C9E44D /* right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right@2x.png"; sourceTree = "<group>"; };
+		A90A85EF189389E900C9E44D /* rightsel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rightsel.png; sourceTree = "<group>"; };
+		A90A85F0189389E900C9E44D /* rightsel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rightsel@2x.png"; sourceTree = "<group>"; };
+		A90A85F1189389E900C9E44D /* up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = up.png; sourceTree = "<group>"; };
+		A90A85F2189389E900C9E44D /* up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "up@2x.png"; sourceTree = "<group>"; };
+		A90A85F3189389E900C9E44D /* upsel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = upsel.png; sourceTree = "<group>"; };
+		A90A85F4189389E900C9E44D /* upsel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "upsel@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A90A85DE1892038000C9E44D /* GameController.framework in Frameworks */,
 				A90A85B11892036D00C9E44D /* CoreGraphics.framework in Frameworks */,
 				A90A85B31892036D00C9E44D /* UIKit.framework in Frameworks */,
 				A90A85AF1892036D00C9E44D /* Foundation.framework in Frameworks */,
@@ -96,6 +136,7 @@
 		A90A85AD1892036D00C9E44D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A90A85DD1892038000C9E44D /* GameController.framework */,
 				A90A85AE1892036D00C9E44D /* Foundation.framework */,
 				A90A85B01892036D00C9E44D /* CoreGraphics.framework */,
 				A90A85B21892036D00C9E44D /* UIKit.framework */,
@@ -107,10 +148,14 @@
 		A90A85B41892036D00C9E44D /* GCTest */ = {
 			isa = PBXGroup;
 			children = (
+				A90A85E4189389C300C9E44D /* Images */,
 				A90A85BD1892036D00C9E44D /* GCTAppDelegate.h */,
 				A90A85BE1892036D00C9E44D /* GCTAppDelegate.m */,
 				A90A85C01892036D00C9E44D /* Images.xcassets */,
 				A90A85B51892036D00C9E44D /* Supporting Files */,
+				A90A85DF1893244A00C9E44D /* GCTViewController.h */,
+				A90A85E01893244A00C9E44D /* GCTViewController.m */,
+				A90A85E11893244A00C9E44D /* GCTViewController.xib */,
 			);
 			path = GCTest;
 			sourceTree = "<group>";
@@ -142,6 +187,29 @@
 				A90A85D01892036D00C9E44D /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A90A85E4189389C300C9E44D /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				A90A85E5189389E900C9E44D /* down.png */,
+				A90A85E6189389E900C9E44D /* down@2x.png */,
+				A90A85E7189389E900C9E44D /* downsel.png */,
+				A90A85E8189389E900C9E44D /* downsel@2x.png */,
+				A90A85E9189389E900C9E44D /* left.png */,
+				A90A85EA189389E900C9E44D /* left@2x.png */,
+				A90A85EB189389E900C9E44D /* leftsel.png */,
+				A90A85EC189389E900C9E44D /* leftsel@2x.png */,
+				A90A85ED189389E900C9E44D /* right.png */,
+				A90A85EE189389E900C9E44D /* right@2x.png */,
+				A90A85EF189389E900C9E44D /* rightsel.png */,
+				A90A85F0189389E900C9E44D /* rightsel@2x.png */,
+				A90A85F1189389E900C9E44D /* up.png */,
+				A90A85F2189389E900C9E44D /* up@2x.png */,
+				A90A85F3189389E900C9E44D /* upsel.png */,
+				A90A85F4189389E900C9E44D /* upsel@2x.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,7 +289,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				A90A85B91892036D00C9E44D /* InfoPlist.strings in Resources */,
+				A90A85FB189389E900C9E44D /* leftsel.png in Resources */,
 				A90A85C11892036D00C9E44D /* Images.xcassets in Resources */,
+				A90A8604189389E900C9E44D /* upsel@2x.png in Resources */,
+				A90A8602189389E900C9E44D /* up@2x.png in Resources */,
+				A90A85F6189389E900C9E44D /* down@2x.png in Resources */,
+				A90A85E31893244A00C9E44D /* GCTViewController.xib in Resources */,
+				A90A85F7189389E900C9E44D /* downsel.png in Resources */,
+				A90A85FD189389E900C9E44D /* right.png in Resources */,
+				A90A85FA189389E900C9E44D /* left@2x.png in Resources */,
+				A90A85F5189389E900C9E44D /* down.png in Resources */,
+				A90A85F9189389E900C9E44D /* left.png in Resources */,
+				A90A85FE189389E900C9E44D /* right@2x.png in Resources */,
+				A90A85F8189389E900C9E44D /* downsel@2x.png in Resources */,
+				A90A85FC189389E900C9E44D /* leftsel@2x.png in Resources */,
+				A90A8600189389E900C9E44D /* rightsel@2x.png in Resources */,
+				A90A8603189389E900C9E44D /* upsel.png in Resources */,
+				A90A8601189389E900C9E44D /* up.png in Resources */,
+				A90A85FF189389E900C9E44D /* rightsel.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,6 +327,7 @@
 			files = (
 				A90A85BB1892036D00C9E44D /* main.m in Sources */,
 				A90A85BF1892036D00C9E44D /* GCTAppDelegate.m in Sources */,
+				A90A85E21893244A00C9E44D /* GCTViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
